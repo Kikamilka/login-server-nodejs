@@ -16,10 +16,10 @@ $(function () {
                 if (status == "success") {
                     alert("Data: " + data + "\nStatus: " + status);
                 }
-                else {
-                    // ???
-                    $("#error").val("Authentication failed. User already exist.");
-                }
+            })
+            .fail(function () {
+                console.log("User already exist.");
+                $("#error").val("Authentication failed. User already exist.");
             });
     });
 
@@ -30,10 +30,9 @@ $(function () {
                 name: $("#name").val()
             },
             function (data, status) {
-                if (status != "success") {
-                    // ???
-                    console.log("!!!");
-                }
+            })
+            .fail(function () {
+                console.log("Authentication failed. User already exist.");
             });
     }, 300));
 });
