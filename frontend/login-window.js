@@ -19,7 +19,7 @@ $(function () {
             })
             .fail(function () {
                 console.log("User already exist.");
-                $("#error").val("Authentication failed. User already exist.");
+                $("#error").text("Authentication failed. User already exist.");
             });
     });
 
@@ -30,8 +30,10 @@ $(function () {
                 name: $("#name").val()
             },
             function (data, status) {
+                $("#error").empty();
             })
             .fail(function () {
+                $("#error").text("Authentication failed. User already exist.");
                 console.log("Authentication failed. User already exist.");
             });
     }, 300));
