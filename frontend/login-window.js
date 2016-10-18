@@ -19,7 +19,6 @@ $(function () {
             })
             .fail(function () {
                 console.log("User already exist.");
-                $("#error").text("Authentication failed. User already exist.");
             });
     });
 
@@ -31,9 +30,12 @@ $(function () {
             },
             function (data, status) {
                 $("#error").empty();
+                $("input").css("border", "1px solid #ccc");
+                $("button#loginButton").prop('disabled', false);
             })
             .fail(function () {
-                $("#error").text("Authentication failed. User already exist.");
+                $("button#loginButton").prop('disabled', true);
+                $("input").css("border", "3px solid #c62133");
                 console.log("Authentication failed. User already exist.");
             });
     }, 300));
