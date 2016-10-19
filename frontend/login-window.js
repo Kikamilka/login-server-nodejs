@@ -1,11 +1,4 @@
 $(function () {
-    var modal = document.getElementById('modal-window');
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    };
 
     $("#loginButton").click(function () {
         $.post("http://localhost:3002/login",
@@ -15,6 +8,7 @@ $(function () {
             function (data, status) {
                 if (status == "success") {
                     alert("Data: " + data + "\nStatus: " + status);
+                    $("#modal-window").css("display", "none");
                 }
             })
             .fail(function () {
